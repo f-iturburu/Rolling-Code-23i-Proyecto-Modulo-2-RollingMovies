@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.banner{
+  max-height: 85vh;
+  object-fit: cover;
+  
+}
+
+.bannerTextContainer{
+  background-color: rgba(59, 59, 59, 0.651);
+  max-height: 75vh;
+}
+
+#sinopsis{
+  text-align: justify;
+}
+
+.itemFooter:hover{
+ color: white !important;
+}
+
+@media all and (min-width: 0) {
+  .bannerTextContainer {
+    width: 50vh;
+  }
+  .banner{
+    min-height: 55vh; 
+  }
+}
+@media all and (min-width: 762px) {
+  .bannerTextContainer {
+    width: 60vh;
+  }
+}
+@media all and (min-width: 992px) {
+  .bannerTextContainer {
+    width: 50vh;
+  }
+}
+
+
+
+
