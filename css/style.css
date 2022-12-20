@@ -100,10 +100,20 @@ textarea {
 
   transition-duration: 0.7s;
 }
-.bi:hover{
+.bi-star:hover{
   transform: scale(1.2);
   transition-duration: 0.7s;
 }
+
+.bi-star-fill:hover{
+  transform: scale(1.2);
+  transition-duration: 0.7s;
+}
+
+.bi-play-btn:hover{
+  transform: scale(1.2);
+  transition-duration: 0.7s;
+} 
 
 
 .fa-twitter:hover {
