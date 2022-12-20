@@ -43,7 +43,7 @@ Curso Fullstack Developer en  [Rolling Code School](https://rollingcodeschool.co
 ## Agradecimientos
 
 A Florencia Martinez, por las excelentes ilustraciones que aportó a este proyecto de forma desinteresada.
-####[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/nogal.tattoo/)
+-[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/nogal.tattoo/)
 
 
 
