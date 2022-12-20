@@ -15,7 +15,7 @@ Curso Fullstack Developer en  [Rolling Code School](https://rollingcodeschool.co
 - [Imagenes](https://drive.google.com/drive/u/2/folders/1gS3_Npo5PJYECKQtc3_XYD9sMcNhPkxx)
  #### Credenciales de administrador:
 
-##### Usuario: Admin
+##### Usuario: admin
 ##### Email: RollingMovies23i@gmail.com
 ##### Contraseña: Rolling23i
 
