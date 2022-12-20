@@ -100,7 +100,7 @@ function favoriteOnOff (id) {
   
     if ( icnFavorite.matches(".bi-star-fill") ) {
       
-      icnFavorite.className = "bi bi-star text-warning fs-3 px-5";
+      icnFavorite.className = "bi bi-star text-warning fs-3 ms-5";
       
       user.favoritesMovies = user.favoritesMovies.filter( i => i !== id);
   
@@ -110,7 +110,7 @@ function favoriteOnOff (id) {
   
       user.favoritesMovies.push(id);
   
-      icnFavorite.className = "bi bi-star-fill text-warning fs-3 px-5";
+      icnFavorite.className = "bi bi-star-fill text-warning fs-3 ms-5";
     
     }
   
