@@ -29,13 +29,13 @@ renderBanner();
 
 const renderMovieCards = () =>{
 
-  //Busco el array y filtro por las que estan publicadas.
+
 
   let arrayMovies = JSON.parse( localStorage.getItem("Movies") );
 
   arrayMovies = arrayMovies.filter( i => i.published);
 
-  //Busco las pelis de accion
+
 
   let gliderAccion = document.getElementById("gliderAccion");
 
@@ -49,7 +49,7 @@ const renderMovieCards = () =>{
 
     });
 
-  //Busco las pelis de ciencia ficcion
+ 
 
   let gliderCienciaFiccion = document.getElementById("gliderCienciaFiccion");
 
@@ -63,7 +63,7 @@ const renderMovieCards = () =>{
 
   });
 
-  //Busco las pelis de superheroes
+
 
   let gliderSuperHeroes = document.getElementById("gliderSuperHeroes");
 
@@ -77,7 +77,7 @@ const renderMovieCards = () =>{
 
   });
 
-  //Busco los documentales
+
 
   let gliderDocumentales = document.getElementById("gliderDocumentales");
 
