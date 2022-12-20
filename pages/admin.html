@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <title>Rolling Movies | Admin </title>
+    <link rel="shortcut icon" href="/img/favicon.svg" type="image/x-icon" />
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+    crossorigin="anonymous"
+  />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css/text_hover.min.css">
+
+ 
+
+    <link rel="stylesheet" href="/css/style.css" />
+    >
+  </head>
+  <body class="bg-dark">
+    <header id="header">
+ 
+    </header>
+    <main>
+      <div class="container-fluid mt-5 tableContainer">
+        <div class="container-fluid text-center">
+          <img src="/img/admin banner.png" class="img-fluid" alt="">
+        </div>
+        <div class="text-end w-100 mt-5">
+          <button  type="button" class="btn btn-secondary rounded-1 rounded-5 px-3" data-bs-toggle="modal" data-bs-target="#addMovieModal" id="addMovieBtn">Agregar pelicula</button>
+
+        </div>
+   
+
+       
+        <table class="table table-dark table-striped mt-3 table-responsive text-center">
+          <thead id="tableHeaderMovie">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Publicado</th>
+              <th scope="col">Destacada</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody id="tableBodyMovie">
+          </tbody>
+        </table>
+
+
+      </div>
+      
+      <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addMovieLabel">Agregar pelicula</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+      
+              <form class="text-start" id="formAddMovie">
+                <div class="mb-3">
+                  <label for="idMovie" class="form-label">ID</label>
+                  <input type="text" class="form-control" id="idMovieAdd" value="" disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="formTitle" class="form-label">Titulo</label>
+                  <input type="text" class="form-control" id="formTitleAdd" value="">
+                  <div id="validationEmail" class="invalid-feedback ">
+                    El titulo ingresado es invalido o ya existe.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formCategory" class="form-label">Categoria</label>
+                  <select class="form-select" aria-label="Default select example" id="formCategoryAdd" value="">
+                    <option value="Accion">Accion</option>
+                    <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                    <option value="Superhéroes">Superhéroes</option>
+                    <option value="Documentales">Documentales</option>
+                  </select>
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">Descripción</label>
+                  <textarea class="form-control" id="formDescriptionAdd" rows="3" value=""></textarea>
+                  
+                <div class="d-flex">
+
+                  <div class="ms-1">
+                    <div id="emailHelp " class="form-text mb-2"  >
+                      (Ingrese una descripción de entre 20 y 550 caracteres)
+                    </div>
+                    <div>
+                      <div id="messageTooShort" class="invalid-feedback">
+                        La descripcion ingresada es demasiado corta.
+                      </div>
+                      <div id="messageTooLong" class="invalid-feedback ">
+                        La descripcion ingresada es demasiado larga.
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="form-text mb-2 ms-auto col-4 text-end me-1"  id="characterCount" >
+                    500
+                  </div>
+                </div>
+
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Imagen cartelera</label>
+                  <input class="form-control" id="URLimgAdd"  value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Google Drive)
+                  </div>
+                  <div id="validationEmail" class="invalid-feedback ">
+                    La URL Ingresada es invalida.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Imagen destacada</label>
+                  <input class="form-control" id="URLfeaturedAdd"  value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Google Drive)
+                  </div>
+                  <div id="validationEmail" class="invalid-feedback ">
+                    La URL Ingresada es invalida.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Video</label>
+                  <input class="form-control" id="URLvideoAdd" value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Youtube)
+                  </div>
+                  <div id="validationEmail" class="invalid-feedback ">
+                    La URL Ingresada es invalida.
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary rounded rounded-5 px-2 " data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary rounded rounded-5 px-2 "  id ="saveNewMovie"> Guardar pelicula</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="editMovieModal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addMovieLabel">Editar pelicula</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id ="modalEditMovie">
+      
+              <form class="text-start" id="formEditMovie">
+                <div class="mb-3">
+                  <label for="idMovie" class="form-label" >ID</label>
+                  <input type="text" class="form-control" id="idMovieEdit" value=""  disabled>
+                </div>
+                <div class="mb-3">
+                  <label for="formTitle" class="form-label">Titulo</label>
+                  <input type="text" class="form-control" id="formTitleEdit" value="" >
+                  <div id="validationEmail" class="invalid-feedback ">
+                    El titulo ingresado es invalido o ya existe.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formCategory" class="form-label">Categoria</label>
+                  <select class="form-select" aria-label="Default select example" id="formCategoryEdit" value="hola">
+                    <option value="Accion">Accion</option>
+                    <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                    <option value="Superhéroes">Superhéroes</option>
+                    <option value="Documental">Documentales</option>
+                  </select>
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">Descripción</label>
+                  <textarea class="form-control" id="formDescriptionEdit" rows="3" value="" ></textarea>
+                  <div class="d-flex">
+
+                    <div class="ms-1">
+                      <div id="emailHelp " class="form-text mb-2"  >
+                        (Ingrese una descripción de entre 20 y 500 caracteres)
+                      </div>
+                      <div>
+                        <div id="messageTooShortEdit" class="invalid-feedback">
+                          La descripcion ingresada es demasiado corta.
+                        </div>
+                        <div id="messageTooLongEdit" class="invalid-feedback ">
+                          La descripcion ingresada es demasiado larga.
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="form-text mb-2 ms-auto col-4 text-end me-1"  id="characterCountEdit" >
+                      550
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Imagen cartelera</label>
+                  <input class="form-control" id="URLimgEdit" value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Google Drive)
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Imagen destacada</label>
+                  <input class="form-control" id="URLfeaturedEdit"  value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Google Drive)
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="formDescription" class="form-label">URL Video</label>
+                  <input class="form-control" id="URLvideoEdit"  value=""></input>
+                  <div id="emailHelp " class="form-text mb-2"  >
+                    (Ingrese una URL de Youtube)
+                  </div>
+                </div>
+              </form>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary rounded rounded-5 px-2 " data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary rounded rounded-5 px-2 " id ="saveEditMovie"  >Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalDeniedAccess" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+           
+    
+
+              <div class="modal-body bg-dark text-light">
+                <div class="w-100 text-center">
+                  <img src="/img/popcorn error.png" class="img-fluid" alt="">
+                </div>
+                <h4 class="text-center text-light">
+                   Acceso denegado
+                </h4>
+
+             <h5 class="text-center text-light"> Lo redirigiremos a la pagina principal</h5>
+             
+            </div>
+            
+         
+        </div>
+      </div>
+      </div>
+
+      <div class="modal fade" id="modalDelete"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-dark text-light">
+           
+            <div class="modal-body ">
+              <h4 class="text-center text-light">
+                ¿Estas seguro que deseas borrar esta pelicula?
+             </h4>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary rounded rounded-5 px-2 " data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-danger rounded rounded-5 px-2 " data-bs-dismiss="modal" id="btnDelete"  >Borrar pelicula</button>
+            </div
+            
+          </div>
+        </div>
+        </div>
+      
+  
+        
+    </main>
+    <footer class="bgFooter">
+      <div class="container mt-5">
+        <div class="row pb-1 text-white">
+          <div class="col-12 text-center p-4 py-2">
+            <div class="d-flex justify-content-center">
+              <div class="w-100 d-flex justify-content-center">
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-facebook-f fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://twitter.com"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-youtube fa-2x"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 p-4 py-2 text-center">
+            <a href="/index.html">
+              <img
+                src="/img/logo2.png"
+                alt="Logo de RollingMovies"
+                class="img-fluid logoFooter"
+              />
+            </a>
+          </div>
+
+          <div class="col-12 col-md-4 py-3 text-center text-md-start">
+            <div class="mb-1">
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-start text-decoration-none itemFooter"
+                  href="/pages/sobreNosotros.html"
+                >
+                  Sobre nosotros</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/contacto.html"
+                >
+                  Contacto</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                  >Centro de ayuda</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 py-3 text-center text-md-start">
+            <div class="mb-1">
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Politica de privacidad</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Preferencias de cookies</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Avisos legales</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 pt-2 border-top border-2">
+            <p class="text-white text-center">
+              &copy; 2022 <b>Rolling Movies</b> - Todos los Derechos
+              Reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="/js/adminInit.js" type="module"></script>
+    <script src="/js/navRenderInit.js" type="module"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+
+    
+  </body>
+</html>
