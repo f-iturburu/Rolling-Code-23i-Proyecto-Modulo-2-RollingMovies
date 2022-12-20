@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <title>Rolling Movies</title>
+    <link rel="shortcut icon" href="/img/favicon.svg" type="image/x-icon" />
+
+
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/css/text_hover.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="bg-dark">
+    <header id="header">
+      
+    </header>
+
+    <main id="userPanelWrapper">
+      <div class="row pt-5 gap-2 container m-auto" >
+        <div class="col-md-12 col-lg-2 bgPanelUserOptions rounded rounded-5">
+          <div
+            class="d-flex d-lg-block text-center justify-content-center my-2"
+          >
+            <button
+              class="btn btn-primary rounded rounded-5 mt-lg-2 my-1 mx-1 px-4"
+              id="changeToSettings"
+            >
+              Opciones
+            </button>
+            <button
+              class="btn btn-primary rounded rounded-5 my-1 px-4 mx-1"
+              id="changeToFavourites"
+            >
+              Favoritos
+            </button>
+          </div>
+        </div>
+        <div
+          class="col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5"
+          id="panelOpciones"
+        >
+          <div class="row container-fluid">
+            <div class="col-md-12 col-lg-4 rounded rounded-5 my-2">
+              <div class="justify-content-center d-flex d-lg-block ">
+                <button
+                  class="btn btn-primary rounded rounded-5 mx-1 my-1 mt-lg-2 w-100"
+                  id="changeToPanelEmail"
+                >
+                  Cambiar email
+                </button>
+                <button
+                  class="btn btn-primary rounded rounded-5 mx-1 my-1 w-100"
+                  id="changeToPanelPassword"
+                >
+                  Cambiar contraseña
+                </button>
+                <button
+                  class="btn btn-primary rounded rounded-5 mx-1 my-1 w-100"
+                  id="changeToPanelUsername"
+                >
+                  Cambiar nombre de usuario
+                </button>
+              </div>
+            </div>
+            
+            <div class="col-md-12 col-lg-8 mt-lg-3" id="panelCambiarEmail">
+              <form id="formCambiarEmail">
+                <label for="emailActual" class="form-label"
+                  >Ingrese su dirección de correo actual</label
+                >
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailActual"
+                    aria-describedby="validationEmail"
+                    required
+                  />
+
+                  <div
+                    id="validationEmail"
+                    class="invalid-feedback invalidFeedbackEmail"
+                  >
+                    La direccion de correo ingresada no coincide con su correo
+                    actual.
+                  </div>
+                </div>
+
+                <label for="nuevoEmail" class="form-label"
+                  >Ingrese su nueva dirección de correo</label
+                >
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="nuevoEmail"
+                    aria-describedby="validationEmail"
+                    required
+                  />
+
+                  <div
+                    id="validationEmail"
+                    class="invalid-feedback invalidFeedbackEmail"
+                  >
+                    La direccion de correo ingresada es incorrecta.
+                  </div>
+                  <div class="alert alert-danger d-none mt-2" role="alert" id="emailAlreadyTakenAlert">
+                    La direccion de correo ingresada ya esta registrada.
+                  </div>
+                </div>
+
+                <label for="passwordLogin" class="form-label"
+                  >Ingrese su contraseña</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passwordCambiarEmail"
+                  />
+                  <span class="input-group-text" id="iconPasswordCambiarEmail"
+                    ><i
+                      class="fa-regular fa-eye"
+                      id="showPasswordCambiarEmail"
+                    ></i
+                  ></span>
+                  <div
+                    id="validacionPasswordCambiarEmail"
+                    class="invalid-feedback"
+                  >
+                    La contraseña ingresada no coincide con su contraseña
+                    actual.
+                  </div>
+                </div>
+
+                <div class="w-100 text-end">
+                  <button class="btn btn-primary px-2 rounded rounded-5 mb-3 " id="guardarEmail"> Guardar cambios</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-md-12 col-lg-8 mb-3 mt-lg-3 d-none" id="panelCambiarContraseña"
+            >
+              <form id="cambiarContraseña">
+                <label for="passwordLogin" class="form-label"
+                  >Ingrese su contraseña actual</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passworCambiarContraseña-Actual"
+                  />
+                  <span class="input-group-text" id="iconCurrentPassword"
+                    ><i
+                      class="fa-regular fa-eye"
+                      id="showPasswordContraseñaActual"
+                    ></i
+                  ></span>
+                  <div id="validationPassword" class="invalid-feedback">
+                    La contraseña ingresada no coincide con su contraseña
+                    actual.
+                  </div>
+                </div>
+
+                <label for="passwordLogin" class="form-label"
+                  >Ingrese su nueva contraseña</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passworCambiarContraseña1"
+                  />
+                  <span class="input-group-text" id="iconNewPassword1"
+                    ><i
+                      class="fa-regular fa-eye"
+                      id="showPasswordCambiarContraseña1"
+                    ></i
+                  ></span>
+                  <div id="validationPassword" class="invalid-feedback">
+                    Las contraseña ingresada es invalida.
+                  </div>
+                </div>
+                <div id="emailHelp " class="form-text mb-3 text-light">
+                  (Ingrese una contraseña de entre 8 y 15 caracteres (Debe tener
+                  una combinacion de letras y números. No se permiten caracteres
+                  especiales)
+                </div>
+
+                <label for="passwordLogin" class="form-label"
+                  >Vuelva a ingresar su nueva contraseña</label
+                >
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="passworCambiarContraseña2"
+                  />
+                  <span class="input-group-text" id="iconNewPassword2"
+                    ><i
+                      class="fa-regular fa-eye"
+                      id="showPasswordCambiarContraseña2"
+                    ></i
+                  ></span>
+                  <div id="validationPassword" class="invalid-feedback">
+                    Las contraseñas no coinciden.
+                  </div>
+                </div>
+                <div class="w-100 text-end">
+                  <button class="btn btn-primary px-2 rounded rounded-5 mb-3 " id="guardarContraseña"> Guardar cambios</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-md-12 col-lg-8 mt-lg-3 d-none" id="panelCambiarUsername"
+            >
+
+            <form id="formCambiarUsername">
+              <div class="mb-3">
+                <label for="username" class="form-label"
+                  >Ingrese su nombre de usuario actual</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="usernameActual"
+                  aria-describedby="validationUsername"
+                  required
+                />
+
+                <div id="validationUsername" class="invalid-feedback">
+                  El nombre de usuario ingresado no coincide con su nombre
+                  actual.
+                </div>
+              
+              </div>
+              <div class="mb-3">
+                <label for="username" class="form-label"
+                  >Ingrese su nuevo nombre de usuario</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="usernameNuevo"
+                  aria-describedby="validationUsername"
+                  required
+                />
+
+                <div id="validationUsername" class="invalid-feedback">
+                  El nombre de usuario ingresado no es valido, por favor pruebe
+                  con otro.
+                </div>
+                <div
+                  class="alert alert-danger d-none mt-2"
+                  role="alert"
+                  id="userAlreadyTakenAlert"
+                >
+                  El nombre de usuario ingresado ya esta registrado.
+                </div>
+              </div>
+              <div id="userHelp" class="form-text text-light mb-3">
+                Ingrese un nombre de usuario de entre 4 y 10 caracteres (no se
+                permiten caracteres especiales)
+              </div>
+
+              <label for="passwordLogin" class="form-label"
+                >Ingrese su contraseña</label
+              >
+              <div class="input-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordCambiarUsername"
+                />
+                <span class="input-group-text" id="iconPasswordCambiarUsername"
+                  ><i
+                    class="fa-regular fa-eye"
+                    id="showPasswordCambiarUsername"
+                  ></i
+                ></span>
+                <div id="validacionPasswordCambiarUsername" class="invalid-feedback">
+                  Las contraseñas no coinciden.
+                </div>
+              </div>
+            </form>
+
+
+              <div class="w-100 text-end">
+                <button class="btn btn-primary px-2 rounded rounded-5 mb-3 " id="guardarNombreDeUsuario"> Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-9 rounded rounded-5 bg-danger d-none"
+          id="panelFavoritos"
+        >
+
+        
+        
+
+        </div>
+      </div>
+
+            <!-- Modal -->
+<div class="modal fade" id="modalChangeSuccess" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body bg-dark">
+        <div class="w-100 text-center">
+          <img src="/img/popcorn happy1.png" class="img-fluid" alt="">
+        </div>
+
+        <h5 class="text-center text-light">
+          Sus cambios han sido guardados existosamente
+
+        </h5>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="modalDeniedAccess" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        Acceso denegado
+        <br>
+        Lo redirigiremos a la pagina principal
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </main>
+    <footer class="bgFooter">
+      <div class="container mt-5">
+        <div class="row pb-1 text-white">
+          <div class="col-12 text-center p-4 py-2">
+            <div class="d-flex justify-content-center">
+              <div class="w-100 d-flex justify-content-center">
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-facebook-f fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://twitter.com"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-twitter fa-2x"></i>
+                  </a>
+                </div>
+                <div class="py-5 py-md-2 mx-3">
+                  <a
+                    class="h5 text-secondary text-decoration-none"
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-youtube fa-2x"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 p-4 py-2 text-center">
+            <a href="/index.html">
+              <img
+                src="/img/logo2.png"
+                alt="Logo de RollingMovies"
+                class="img-fluid logoFooter"
+              />
+            </a>
+          </div>
+
+          <div class="col-12 col-md-4 py-3 text-center text-md-start">
+            <div class="mb-1">
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-start text-decoration-none itemFooter"
+                  href="/pages/sobreNosotros.html"
+                >
+                  Sobre nosotros</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/contacto.html"
+                >
+                  Contacto</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                  >Centro de ayuda</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 py-3 text-center text-md-start">
+            <div class="mb-1">
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Politica de privacidad</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Preferencias de cookies</a
+                >
+              </div>
+              <div class="mb-1">
+                <a
+                  class="text-secondary text-decoration-none itemFooter"
+                  href="/pages/404.html"
+                >
+                  Avisos legales</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-12 pt-2 border-top border-2">
+            <p class="text-white text-center">
+              &copy; 2022 <b>Rolling Movies</b> - Todos los Derechos
+              Reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/js/navRenderInit.js" type="module"></script>
+    <script src="/js/userPanel.js" type="module"></script>
+    <script src="/js/movieRenderUserPanel.js" type="module"></script>
+
+  </body>
+</html>

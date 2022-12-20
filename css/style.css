@@ -1,47 +1,172 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
-.banner{
-  max-height: 85vh;
-  object-fit: cover;
-  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
-.bannerTextContainer{
+.bgPanelUserOptions {
+  background-color: rgba(175, 175, 175, 0.281);
+  color: white;
+}
+
+.bgFooter{
+  background-color: #000000a2;
+}
+
+#error404{
+ width: 40vw;
+}
+
+#userPanelWrapper{
+  min-height: 80vh;
+}
+
+#recoverPasswordPannel{
+  min-height: 80vh;
+}
+
+.moviecard:last-child {
+  border: 0 !important;
+}
+
+.iframeReproductor {
+  height: 91vh;
+  width: 100%;
+}
+
+#imgMoviesModal{
+  object-fit: cover;
+}
+.ratio::before{
+  display: inline !important;
+}
+
+.banner {
+  max-height: 90vh;
+  object-fit: cover;
+}
+
+body {
+  margin-top: 9vh;
+  background-color: #14181C !important;
+}
+
+.logoFooter{
+  height: 16vh;
+}
+.logo{
+ height: 7vh;
+}
+
+.bannerTextContainer {
   background-color: rgba(59, 59, 59, 0.651);
   max-height: 75vh;
 }
 
-#sinopsis{
+.sinopsis {
   text-align: justify;
 }
 
-.itemFooter:hover{
- color: white !important;
+.itemFooter:hover {
+  color: white !important;
+}
+
+.tableContainer {
+  min-height: 80vh;
+}
+
+textarea {
+  resize: none;
+}
+
+.fa-instagram:hover {
+  transform: scale(1.2);
+
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  -webkit-background-clip: text;
+
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition-duration: 0.7s;
+}
+.bi:hover{
+  transform: scale(1.2);
+  transition-duration: 0.7s;
+}
+
+
+.fa-twitter:hover {
+  transform: scale(1.2);
+  color: rgb(29 161 242);
+  transition-duration: 0.7s;
+}
+
+.fa-facebook-f:hover {
+  transform: scale(1.2);
+  color: rgb(1, 101, 225);
+  transition-duration: 0.7s;
+}
+
+.fa-youtube:hover {
+  transform: scale(1.2);
+  color: rgb(255 0 0);
+  transition-duration: 0.7s;
+}
+
+#verMas:hover {
+  transform: scale(1.1);
+  background-color: #d42f19 !important;
+  border-color: #d42f19 !important;
+  transition-duration: 0.7s;
+}
+
+@media all and (min-width: 768px) {
+#cardHover1, #cardHover2{
+  width: 25%;
+}
 }
 
 @media all and (min-width: 0) {
   .bannerTextContainer {
-    width: 50vh;
+    width: 80vw;
   }
-  .banner{
-    min-height: 55vh; 
+  .banner {
+    min-height: 85vh;
+  }
+  .containerFormRegistro {
+    width: 90vw;
   }
 }
 @media all and (min-width: 762px) {
   .bannerTextContainer {
-    width: 60vh;
+    width: 70vw;
+  }
+  .containerFormRegistro {
+    width: 70vw;
   }
 }
 @media all and (min-width: 992px) {
   .bannerTextContainer {
-    width: 50vh;
+    width: 40vw;
+  }
+  .containerFormRegistro {
+    width: 50vw;
   }
 }
 
-
-
-
+@media all and (max-width: 992px) {
+  #imgModalVerMas {
+    width: 43vh;
+  }
+}
