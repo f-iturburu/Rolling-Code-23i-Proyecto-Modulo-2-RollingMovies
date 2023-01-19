@@ -28,7 +28,6 @@ export const movieCard = (movie) =>{
           <div class="col">
             <button onclick="modalVerMas(${id})" class="btn btn-secondary rounded rounded-5 px-2 ms-4 mb-5" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas"> Ver mas </button>
             
-           
           </div>
         </div>
       </div>

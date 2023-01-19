@@ -4,7 +4,7 @@ import { movieModal } from "./moviesModal.js";
 
 
 export const movieBanner = (movie) =>{
-    
+
     let name = movie.name;
 
     let id = movie.code;
@@ -22,8 +22,11 @@ export const movieBanner = (movie) =>{
     <div class="card-img-overlay ">
       <div class="bannerTextContainer  rounded rounded-5 ">
         <h1 class="card-title  p-3">${name}</h1>
-        <p class="card-text sinopsis p-3">${description}</p>
-        <div class="card-text px-3 d-flex" >
+        <div class="textContainer scrollContainer overflow-auto">
+        <p class="card-text sinopsis p-3 ">${description}</p>
+    
+        </div>
+        <div class="card-text px-3 d-flex " >
           <button onclick='modalVerMas(${id})' class="btn btn-secondary rounded-5 px-2 ms-auto mb-3" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas" > Ver mas </button>
         </div>
       </div>

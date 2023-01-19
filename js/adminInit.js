@@ -62,13 +62,10 @@ tableBodyMovie.addEventListener('click', function(e){
 
     const {target} = e;
 
-
-    const {path} = e;
-
     if(target.matches("#publicado")){
 
         
-        let id = path[2].children[0].textContent;
+        let id = e.target.attributes.alt.value
         
        
         arrayMovies.forEach(i => {
@@ -92,8 +89,7 @@ tableBodyMovie.addEventListener('click', function(e){
 
     if(target.matches("#destacada")){
 
-    
-        let id = path[2].children[0].textContent;
+        let id = e.target.attributes.alt.value
 
 
        
@@ -138,18 +134,16 @@ tableBodyMovie.addEventListener('click', function(e){
 
     if(target.matches("#delete")){
 
-        let id = path[2].children[0].textContent;
+        let id = e.target.attributes.alt.value
         btnDelete.title = id
     }
 
 
     if(target.matches("#edit")){
-
-       
-        let id = path[2].children[0].textContent;
+        let id = e.target.attributes.alt.value
         arrayMovies.forEach(Movie => {
+            
             if(Movie.code == id){
-
                 let titulo = Movie.name;
 
                 let category = Movie.category;

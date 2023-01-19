@@ -117,10 +117,12 @@ document.addEventListener('keyup',validateForm)
 
 
     if ( validateMessage() && validateName() && validateLastName()&& validateEmail() ){
-        btnContainer.innerHTML = '  <button type="submit" class="btn btn-primary rounded-5 px-3 ms-auto" id="sendMessage" >Enviar</button> '
+      btnContainer.className = 'd-flex enabled'
+        btnContainer.innerHTML = '  <button type="submit" class="btn btn-primary rounded-5 px-3 ms-auto enabled" id="sendMessage" enabled>Enviar</button> '
 
     } else{
-        btnContainer.innerHTML = '  <button type="submit" class="btn btn-secondary rounded-5 px-3 ms-auto" id="sendMessage" disabled >Enviar</button> '
+      btnContainer.className = 'd-flex disabled'
+      btnContainer.innerHTML = '  <button type="submit" class="btn btn-secondary rounded-5 px-3 ms-auto disabled" id="sendMessage" disabled >Enviar</button> '
     }
   }
 
@@ -129,30 +131,37 @@ document.addEventListener('keyup',validateForm)
   let  modalContactSuccess = new bootstrap.Modal(document.getElementById('modalContactSuccess'))
   let  modalContactFailed = new bootstrap.Modal(document.getElementById('modalContactFailed'))
   let contactForm = document.getElementById("contactForm")
+  
+  
+  
 
+    
   function sendMessage (e){
     e.preventDefault()
-
-    let params = {
-      name: nameForm.value,
-      lastname: lastNameForm.value,
-      email:emailForm.value ,
-      message: messageForm.value 
-  
-    };
+    const {target} = e;
+    if (target.matches('.enabled')) {
+      let params = {
+        name: nameForm.value,
+        lastname: lastNameForm.value,
+        email:emailForm.value ,
+        message: messageForm.value 
     
-    emailjs.send('service_lhhp93f', 'template_aq1589l', params, 'OaYg6XmB036zfDoyB')
-      .then(function(response) {
-        modalContactSuccess.show()
-        contactForm.reset()
-        setTimeout(function(){
-          modalContactSuccess.hide()
-   },2500);
-      }, function(error) {
-        modalContactFailed.show()
-        setTimeout(function(){
-          modalContactFailed.hide()
-   },2500);
-      });
+      };
+      
+      emailjs.send('service_lhhp93f', 'template_aq1589l', params, 'OaYg6XmB036zfDoyB')
+        .then(function(response) {
+          modalContactSuccess.show()
+          contactForm.reset()
+          setTimeout(function(){
+            modalContactSuccess.hide()
+     },2500);
+        }, function(error) {
+          modalContactFailed.show()
+          setTimeout(function(){
+            modalContactFailed.hide()
+     },2500);
+        });
+     
+    }
 
   }
