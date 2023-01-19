@@ -58,7 +58,8 @@ export function generateIdUsers() {
 }
 
 export function generateIdMovies() {
-  let id = (Math.trunc(Math.random() * (10000 - 100000) + 100000));
+
+  let id = crypto.randomUUID()
  id = id.toString()
   return id;
 }
