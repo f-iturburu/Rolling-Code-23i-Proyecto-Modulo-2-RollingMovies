@@ -17,14 +17,14 @@ export const movieRow = (movieJSON) => {
 
         row += `
             <td>
-                <input class="form-check-input " type="checkbox"  id="publicado" checked>
+                <input class="form-check-input " alt="${id}"type="checkbox"  id="publicado" checked>
             </td>
         `
     }else{
 
         row += `
             <td>
-                <input class="form-check-input " type="checkbox" id="publicado" >
+                <input class="form-check-input " alt="${id}" type="checkbox" id="publicado" >
             </td>
         `
     }
@@ -32,21 +32,21 @@ export const movieRow = (movieJSON) => {
     if(featured){
         row += `
             <td>
-                <input class="form-check-input " type="checkbox" id="destacada" checked>
+                <input class="form-check-input " alt="${id}" type="checkbox" id="destacada" checked>
             </td>
         `
     }else{
         row += `
             <td>
-                <input class="form-check-input " type="checkbox"  id="destacada">
+                <input class="form-check-input " alt="${id}" type="checkbox"  id="destacada">
             </td>
         `
     }
 
     row += `
-            <td class="d-flex justify-content-around"> 
-                <i data-bs-toggle="modal" data-bs-target="#modalDelete" id="delete" class="fa-solid fa-trash fa-2x "></i>
-                <i data-bs-toggle="modal" data-bs-target="#editMovieModal" class="fa-solid fa-pen-to-square fa-2x" id="edit"></i>
+            <td> 
+                <i data-bs-toggle="modal" data-bs-target="#modalDelete" alt="${id}" id="delete" class="fa-solid fa-trash fa-2x me-2 "></i>
+                <i data-bs-toggle="modal" data-bs-target="#editMovieModal"  alt="${id}" id="edit" class="fa-solid fa-pen-to-square fa-2x" ></i>
             </td>
         </tr>
     `

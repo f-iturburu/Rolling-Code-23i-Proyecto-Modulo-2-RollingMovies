@@ -151,7 +151,6 @@ export const navUnlogged = () => {
 
 function cerrarSesion(){
 
-
   localStorage.removeItem("userLogged")
 
   location.reload()
@@ -161,19 +160,13 @@ function cerrarSesion(){
 function iniciarSesion(){
 
   let incorrectLoginAlert = document.getElementById ("loginIncorrect")
-
   let userName = document.getElementById("userLogin").value;
-
   let password = document.getElementById("passwordLogin").value;
-
   let arrayUsers = JSON.parse( localStorage.getItem("users"));
-
   let userFound = arrayUsers.find(i => ( userName.toLowerCase() === i.userName.toLowerCase() || userName.toLowerCase() === i.email.toLowerCase() ) && (password === i.password));
     
   if(userFound === undefined){
-
       incorrectLoginAlert.className= "alert alert-danger mt-2 p-2"
-
     }else{
 
       incorrectLoginAlert.className= "alert alert-danger d-none mt-2"
@@ -181,7 +174,6 @@ function iniciarSesion(){
       localStorage.setItem("userLogged", JSON.stringify(userFound));
 
       let userLogged = JSON.parse (localStorage.getItem("userLogged"));
-      
       if (userLogged.role === 'Admin') {
 
         window.location.href="/pages/admin.html"

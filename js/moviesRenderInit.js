@@ -16,7 +16,6 @@ const renderBanner = () =>{
     if(movieFeatured === undefined){
 
         movieFeatured = arrayMovies.find( i => i.published);
-
         
     }
 

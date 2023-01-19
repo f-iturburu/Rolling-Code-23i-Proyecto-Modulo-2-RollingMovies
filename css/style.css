@@ -12,19 +12,19 @@
   color: white;
 }
 
-.bgFooter{
+.bgFooter {
   background-color: #000000a2;
 }
 
-#error404{
- width: 40vw;
+#error404 {
+  width: 40vw;
 }
 
-#userPanelWrapper{
+#userPanelWrapper {
   min-height: 80vh;
 }
 
-#recoverPasswordPannel{
+#recoverPasswordPannel {
   min-height: 80vh;
 }
 
@@ -37,10 +37,10 @@
   width: 100%;
 }
 
-#imgMoviesModal{
+#imgMoviesModal {
   object-fit: cover;
 }
-.ratio::before{
+.ratio::before {
   display: inline !important;
 }
 
@@ -51,14 +51,14 @@
 
 body {
   margin-top: 9vh;
-  background-color: #14181C !important;
+  background-color: #14181c !important;
 }
 
-.logoFooter{
+.logoFooter {
   height: 16vh;
 }
-.logo{
- height: 7vh;
+.logo {
+  height: 7vh;
 }
 
 .bannerTextContainer {
@@ -100,21 +100,20 @@ textarea {
 
   transition-duration: 0.7s;
 }
-.bi-star:hover{
+.bi-star:hover {
   transform: scale(1.2);
   transition-duration: 0.7s;
 }
 
-.bi-star-fill:hover{
+.bi-star-fill:hover {
   transform: scale(1.2);
   transition-duration: 0.7s;
 }
 
-.bi-play-btn:hover{
+.bi-play-btn:hover {
   transform: scale(1.2);
   transition-duration: 0.7s;
-} 
-
+}
 
 .fa-twitter:hover {
   transform: scale(1.2);
@@ -141,10 +140,57 @@ textarea {
   transition-duration: 0.7s;
 }
 
-@media all and (min-width: 768px) {
-#cardHover1, #cardHover2{
-  width: 25%;
+.fa-trash:hover{
+  color: #d42f19 !important;
+  transition-duration: 0.4s;
 }
+
+.fa-pen-to-square:hover{
+  color: #0d6efd!important;
+  transition-duration: 0.4s;
+}
+
+@media all and (min-width: 768px) {
+  #cardHover1,
+  #cardHover2 {
+    width: 25%;
+  }
+}
+
+.textContainer {
+  max-height: 45vh;
+}
+
+.tableMovies{
+  max-height: 80vh;
+}
+.scrollContainer::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: #46444494;
+  border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-track:hover,
+.scrollContainer::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
 }
 
 @media all and (min-width: 0) {

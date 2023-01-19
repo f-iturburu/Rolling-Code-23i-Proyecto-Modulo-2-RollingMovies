@@ -421,7 +421,6 @@ document.addEventListener("click", (e) => {
 
 let btnPanelChangeSettings = document.getElementById("changeToSettings");
 let btnPanelChangeFavourites = document.getElementById("changeToFavourites");
-
 let settingsPanel = document.getElementById("panelOpciones");
 
 let favouritesPanel = document.getElementById("panelFavoritos");
@@ -457,6 +456,8 @@ function switchToPasswordChangePanel() {
   panelEmail.className = "col-md-12 col-lg-8 mt-lg-3 d-none";
   panelPassword.className = "col-md-12 col-lg-8 mt-lg-3 ";
   panelUsername.className = "col-md-12 col-lg-8 mt-lg-3 d-none";
+
+  
 }
 
 btnPanelChangeEmail.addEventListener("click", switchToEmailChangePanel);
