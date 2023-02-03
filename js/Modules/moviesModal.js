@@ -65,16 +65,16 @@ export const movieModal = (movie) =>{
           <div class="d-flex justify-content-center justify-content-md-start mt-1">
 
        
-            <i  onclick="abrirReproductor(${id})" class="bi bi-play-btn text-danger fs-3 "></i>`
+            <i  onclick="abrirReproductor('${id}')" class="bi bi-play-btn text-danger fs-3 "></i>`
  
 
   
   if(favorite===undefined){
   
-    modal += `<i id="iconFavorite" onclick="favoriteOnOff(${id})" class="bi bi-star text-warning fs-3 ms-5"></i> `
+    modal += `<i id="iconFavorite" onclick="favoriteOnOff('${id}')" class="bi bi-star text-warning fs-3 ms-5"></i> `
   
   }else{
-    modal += `<i id="iconFavorite" onclick="favoriteOnOff(${id})" class="bi bi-star-fill text-warning fs-3 ms-5"></i> `
+    modal += `<i id="iconFavorite" onclick="favoriteOnOff('${id}')" class="bi bi-star-fill text-warning fs-3 ms-5"></i> `
   }
 
     modal +=   `
@@ -89,8 +89,6 @@ export const movieModal = (movie) =>{
 }
 
 function favoriteOnOff (id) {
-
-  
 
   let user =  (JSON.parse( localStorage.getItem("userLogged")));
 
@@ -127,16 +125,13 @@ function favoriteOnOff (id) {
 
 function abrirReproductor(id) {
 
-  let user =  (JSON.parse( localStorage.getItem("userLogged")));
+  let user =  (JSON.parse(localStorage.getItem("userLogged")));
 
   if ( user !== null){
 
     window.location = "/pages/reproductor.html?id=" + id;
   
   } else{
-
-    
-
     modalNotLoggedPlay.show()
     modalMovies.hide()
   }

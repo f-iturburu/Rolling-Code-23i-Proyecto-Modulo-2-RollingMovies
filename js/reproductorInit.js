@@ -22,15 +22,11 @@ if(id != null && user != undefined ){
         divReproductor.innerHTML = "";
     
         divReproductor.innerHTML = reproductor(movie);
-
-     
-
     }else{
         
         window.location.href = "/pages/404.html"
 
     }
-
 }else{
     modalNotLogged.show()
     setTimeout(function(){
