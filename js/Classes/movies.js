@@ -27,8 +27,8 @@ export function hardCodedMovies () {
     "John Wick",
     "Accion",
     "Después de que John Wick pierda a su esposa, Helen, por una enfermedad terminal, recibe un cachorro beagle llamado Daisy de su difunta esposa para ayudarlo a sobrellevar su dolor. A pesar del comportamiento estoico de John, él se une con el cachorro y pasan el día conduciendo en su Ford Mustang Boss 429 de 1969. En una estación de servicio, se encuentra con un trío de gánsteres rusos cuyo líder, llamado Iosef, insiste en comprar su automóvil, pero John reiteradamente afirma que el auto no está a la venta. Frustrados, los mafiosos siguen a John a su casa, lo dejan inconsciente a golpes, roban su auto y matan a Daisy.",
-    "https://drive.google.com/file/d/1vTbaJzvXeCDBjsvNh1y99GSiEIsBJRHM/view?usp=share_link",
-    "https://drive.google.com/file/d/18TkWoKUMQ0PHASbZsY3sgZQoog6GcXRT/view?usp=share_link",
+    "https://drive.google.com/file/d/1_D7xzURI34uvRqnNZAvsSV7A60MiuHYd/view?usp=share_link",
+    "https://drive.google.com/file/d/1UJDkOfvKR3sBtZ7u-keEvKQGq2vqt1yU/view?usp=share_link",
     "https://youtu.be/C0BMx-qxsP4"
     )
     let movie2 = new Movie (idMovies(),

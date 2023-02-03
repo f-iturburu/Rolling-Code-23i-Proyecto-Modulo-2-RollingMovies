@@ -27,7 +27,7 @@ export const movieBanner = (movie) =>{
     
         </div>
         <div class="card-text px-3 d-flex " >
-          <button onclick='modalVerMas(${id})' class="btn btn-secondary rounded-5 px-2 ms-auto mb-3" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas" > Ver mas </button>
+          <button onclick="modalVerMas('${id}')" class="btn btn-secondary rounded-5 px-2 ms-auto mb-3" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas" > Ver mas </button>
         </div>
       </div>
     </div>

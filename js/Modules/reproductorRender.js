@@ -26,9 +26,9 @@ export const reproductor = (movie) =>{
 <h1 class="ms-5">${name}</h1>`
 
 if(favorite===undefined){
-    reproductor += `<i id="iconFavorite" onclick="favoriteOnOff(${id})" class="bi bi-star text-warning ms-auto fs-3 mx-5"></i> `
+    reproductor += `<i id="iconFavorite" onclick="favoriteOnOff('${id}')" class="bi bi-star text-warning ms-auto fs-3 mx-5"></i> `
   }else{
-    reproductor += `<i id="iconFavorite" onclick="favoriteOnOff(${id})" class="bi bi-star-fill ms-auto text-warning fs-3 mx-5"></i> `
+    reproductor += `<i id="iconFavorite" onclick="favoriteOnOff('${id}')" class="bi bi-star-fill ms-auto text-warning fs-3 mx-5"></i> `
   }
 
 

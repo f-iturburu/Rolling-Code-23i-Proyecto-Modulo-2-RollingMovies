@@ -22,8 +22,8 @@ export  const favoriteCard = (movie) =>{
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">${description}</p>
                 <div class="d-flex justify-content-center justify-content-md-start mt-1">
-                  <i onclick="abrirReproductor(${id})" class="bi bi-play-btn  text-danger fs-3 pe-5"></i>
-                  <i onclick="removeMovieFavorite(${id})" class="bi bi-star-fill text-warning fs-3 px-5"></i>
+                  <i onclick="abrirReproductor('${id}')" class="bi bi-play-btn  text-danger fs-3 pe-5"></i>
+                  <i onclick="removeMovieFavorite('${id}')" class="bi bi-star-fill text-warning fs-3 px-5"></i>
                   <i class="bi bi-share fs-3 text-primary ps-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lo sentimos, esta opción aun no esta disponible."></i>
                 </div>
 

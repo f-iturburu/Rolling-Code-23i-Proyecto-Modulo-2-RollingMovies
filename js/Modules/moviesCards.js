@@ -15,7 +15,6 @@ export const movieCard = (movie) =>{
     <div class="hovereffect rounded rounded-2 px-2 " >
     <img
       class="img-fluid rounded rounded-2 h-100" id="imgMoviesModal"
-     
       src="${URLimg}"
       alt=""
     />
@@ -26,8 +25,7 @@ export const movieCard = (movie) =>{
         <div class="row align-items-end containerButtons">
           
           <div class="col">
-            <button onclick="modalVerMas(${id})" class="btn btn-secondary rounded rounded-5 px-2 ms-4 mb-5" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas"> Ver mas </button>
-            
+            <button onclick="modalVerMas('${id}')"  class="btn btn-secondary rounded rounded-5 px-2 ms-4 mb-5" id="verMas" data-bs-toggle="modal" data-bs-target="#modalVerMas"> Ver mas </button>
           </div>
         </div>
       </div>
@@ -39,8 +37,8 @@ export const movieCard = (movie) =>{
 }
 
 function modalVerMas(id) {
-
-  let arrayMovies = JSON.parse( localStorage.getItem("Movies") );
+  console.log(id);
+  let arrayMovies = JSON.parse( localStorage.getItem("Movies"));
 
   let movie = arrayMovies.find( i => i.code == id);
 

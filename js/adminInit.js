@@ -145,15 +145,10 @@ tableBodyMovie.addEventListener('click', function(e){
             
             if(Movie.code == id){
                 let titulo = Movie.name;
-
                 let category = Movie.category;
-
                 let description = Movie.description;
-
                 let imgFeatured = Movie.imgURLFeatured;
-
                 let img = Movie.img;
-
                 let url = Movie.videoURL
 
                 let editModal = document.getElementById("editMovieModal")
