@@ -4,19 +4,12 @@ import { movieModal } from "./moviesModal.js";
 
 
 export const movieBanner = (movie) =>{
-
     let name = movie.name;
-
     let id = movie.code;
-
     let URLimg = parseUrl(movie.imgURLFeatured);
-
     let description = movie.description;
 
     return `
-
-
-
     <img loading="lazy" src="${URLimg}" class="card-img img-fluid banner" alt="...">
 
     <div class="card-img-overlay ">
@@ -36,15 +29,10 @@ export const movieBanner = (movie) =>{
 }
 
 function modalVerMas(id) {
-
   let arrayMovies = JSON.parse( localStorage.getItem("Movies") );
-
   let movie = arrayMovies.find( i => i.code == id);
-
   let modal = document.getElementById("modalBodyMovie");
-
   modal.innerHTML = movieModal(movie);
-  
 }
 
 window.modalVerMas = modalVerMas;

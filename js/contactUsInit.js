@@ -12,12 +12,9 @@ btnContainer.innerHTML = '  <button type="submit" class="btn btn-secondary round
 messageLong.className = "invalid-feedback d-none"
 messageShort.className = "invalid-feedback d-none"
 
-
-
-
 function autocompleteEmail(){
     let userLogged = JSON.parse (localStorage.getItem("userLogged"));
-   
+
     if(userLogged !== null){
         emailForm.value = userLogged.email
       }
@@ -28,25 +25,19 @@ emailForm.addEventListener('keyup',validateEmail)
 
 function validateEmail() {
     let validate = true;
-  
     let email = emailForm.value;
-  
     let emailRegExp = /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
   
     if (!emailRegExp.test(email)) {
       validate = false;
-    } else {
-    
-    }   
+    } 
   
    if (validate){
-    
     emailForm.className = "form-control is-valid";
     }else{
         emailForm.className = "form-control is-invalid";
     }
 
-   
     return validate;
   }
   
@@ -59,8 +50,6 @@ function validateEmail() {
     }else{
         nameForm.className = "form-control is-valid";
     }
-
-
     
     return validate
   }

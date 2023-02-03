@@ -1,7 +1,6 @@
 class Movie {
 
     constructor(code,name,category,description,imgURL,imgURLFeatured,videoURL){
-
         this.code = code;
         this.name = name;
         this.category = category;
@@ -10,8 +9,7 @@ class Movie {
         this.img = imgURL;
         this.imgURLFeatured = imgURLFeatured;
         this.featured = false;
-        this.videoURL = videoURL
-        
+        this.videoURL = videoURL   
     }
 
 }

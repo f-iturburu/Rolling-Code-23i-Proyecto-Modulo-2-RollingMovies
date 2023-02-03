@@ -2,17 +2,12 @@ import { Movie } from "./peliculaClass.js";
 import { generateIdMovies } from "./id.js";
 
 function idMovies(){
-
     let id =  generateIdMovies()
-
     let arrayMovies = JSON.parse( localStorage.getItem("Movies") ) || [];
-
     let movieFound = arrayMovies.find( movie => movie.code === id);
 
     while(movieFound !== undefined){
-
         id = generateIdMovies();
-
         movieFound = arrayMovies.find( movie => movie.code === id);
     }
 

@@ -1,9 +1,7 @@
 let hover1 = document.getElementById ("cardHover1")
 let hover2 = document.getElementById ("cardHover2")
-
 let imgContainer1 = document.getElementById ("imgContainer1")
 let imgContainer2 = document.getElementById ("imgContainer2")
-
 
 
 hover1.addEventListener("mouseover",mouseOver1)

@@ -12,16 +12,13 @@ export const movieRow = (movieJSON) => {
                 <td>${name}</td>
                 <td>${category}</td>
                 `
-
     if( published ){
-
         row += `
             <td>
                 <input class="form-check-input " alt="${id}"type="checkbox"  id="publicado" checked>
             </td>
         `
     }else{
-
         row += `
             <td>
                 <input class="form-check-input " alt="${id}" type="checkbox" id="publicado" >

@@ -29,38 +29,25 @@ function idResetPassword(){
     let id = (Math.trunc(Math.random() * (1000 - 10000) + 10000));
     id = id.toString()
     CodeRecoverPassword = id
-    console.log(CodeRecoverPassword);
 }
-
-
   btnsendCode.addEventListener("click",sendCode)
-
   function sendCode(e){
-
-
-
-   
     e.preventDefault()
     let arrayUsers= JSON.parse(localStorage.getItem("users"));
     let emailFound = arrayUsers.find(i => i.email== formEmail.value)
+
     localStorage.setItem("changePasswordUser", JSON.stringify(emailFound))
- 
     idResetPassword()
-  
     insertEmailPanel.className = "d-flex container-fluid justify-content-center pt-5 d-none"
     insertCodePanel.className = "d-flex container-fluid justify-content-center pt-5"    
 
-
     let params = {
-  
       email:formEmail.value ,
       code: CodeRecoverPassword
-  
     };
-    
+
     emailjs.send('service_964jokz', 'template_j3s5rkk', params, 'jRgR-C0QuNEtrWXm_')
     .then(function(response) {
-    
    }, function(error) {
   
    });
@@ -68,17 +55,14 @@ function idResetPassword(){
 
 let formCodeRecoverPassword = document.getElementById("codigoRecuperarContraseña")
 formCodeRecoverPassword.addEventListener("keyup",validateCode)
-
 let resetPasswordPanel = document.getElementById("resetPasswordPanel")
 
 
 function validateCode(){
- 
     if (formCodeRecoverPassword.value == CodeRecoverPassword) {
         insertCodePanel.className = "d-flex container-fluid justify-content-center pt-5 d-none"   
         resetPasswordPanel.className = "d-flex container-fluid justify-content-center pt-5"        
     } 
-
 }
 
 

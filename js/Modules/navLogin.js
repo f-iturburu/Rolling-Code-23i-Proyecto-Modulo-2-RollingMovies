@@ -150,15 +150,11 @@ export const navUnlogged = () => {
 }
 
 function cerrarSesion(){
-
   localStorage.removeItem("userLogged")
-
   location.reload()
-
 }
 
 function iniciarSesion(){
-
   let incorrectLoginAlert = document.getElementById ("loginIncorrect")
   let userName = document.getElementById("userLogin").value;
   let password = document.getElementById("passwordLogin").value;
@@ -168,18 +164,12 @@ function iniciarSesion(){
   if(userFound === undefined){
       incorrectLoginAlert.className= "alert alert-danger mt-2 p-2"
     }else{
-
       incorrectLoginAlert.className= "alert alert-danger d-none mt-2"
-
       localStorage.setItem("userLogged", JSON.stringify(userFound));
-
       let userLogged = JSON.parse (localStorage.getItem("userLogged"));
       if (userLogged.role === 'Admin') {
-
         window.location.href="/pages/admin.html"
-
       } else{
-
         location.reload()
       }
   }
@@ -187,26 +177,17 @@ function iniciarSesion(){
 
 
 }
-
 function passwordOnOff(){
-
   let formPassword = document.getElementById("passwordLogin");
-
   let  icnPassword= document.getElementById("iconPassword");
-
   let eye = icnPassword.children[0];
-
   if (eye.id === "hidePassword" ) {
-
     formPassword.type = "password";
-
     icnPassword.innerHTML = '<i  onclick="passwordOnOff()" class="fa-regular fa-eye" id="showPassword">';
   } 
 
   else if (eye.id === "showPassword") {
-
     formPassword.type = "text";
-
     icnPassword.innerHTML = '<i   onclick="passwordOnOff()" class="fa-regular fa-eye-slash" id="hidePassword"></i> ';
 }
 }

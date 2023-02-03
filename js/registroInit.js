@@ -4,15 +4,10 @@ import {validatePassword, validateSecondPassword, validateEmail, validateUserNam
 
 let formPasswordRegistro = document.getElementById("passwordRegistro");
 let icnPasswordRegistro = document.getElementById("iconPasswordRegistro");
-
 let formPasswordRegistro2 = document.getElementById("passwordRegistro2");
 let icnPasswordRegistro2 = document.getElementById("iconPasswordRegistro2");
-
 let btnRegistro = document.getElementById("registro");
-
-
 let formUser = document.getElementById("usernameRegistro");
-
 let formEmail = document.getElementById("emailRegistro");
 
 
