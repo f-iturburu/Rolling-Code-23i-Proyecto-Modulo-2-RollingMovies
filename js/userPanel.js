@@ -1,61 +1,53 @@
 let panelOptions = document.getElementById("panelOpciones");
 let panelFavorites = document.getElementById("panelFavoritos");
 
- let url = window.location.search;
+let url = window.location.search;
 
-  if(url.match("favorites")){
+if (url.match("favorites")) {
+  panelOptions.className =
+    "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5 d-none";
+  panelFavorites.className =
+    "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5";
+} else {
+  panelOptions.className =
+    "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5";
+  panelFavorites.className =
+    "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5 d-none";
+}
 
-    panelOptions.className = "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5 d-none";
-    panelFavorites.className = "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5";
+function validateUserLogged() {
+  let forms = document.getElementsByTagName("input");
+  let userLogged = JSON.parse(localStorage.getItem("userLogged"));
 
-  }else{
-
-    panelOptions.className = "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5";
-    panelFavorites.className = "col-md-12 col-lg-9 bgPanelUserOptions rounded rounded-5 d-none";
-  }
-
-
-
-  function validateUserLogged (){
-
-    let forms = document.getElementsByTagName("input")
-    
-    let userLogged = JSON.parse(localStorage.getItem("userLogged"));
-    if (userLogged != null){
-      if(userLogged.role == "Admin"){
-  
-        for (const i of forms) {
-          i.setAttribute("disabled", "")
-          i.setAttribute("placeholder", "No puedes modificar este campo")
-        }
+  if (userLogged != null) {
+    if (userLogged.role == "Admin") {
+      for (const i of forms) {
+        i.setAttribute("disabled", "");
+        i.setAttribute("placeholder", "No puedes modificar este campo");
       }
-      
-    }else{
-      window.location.href="/index.html"
     }
-    
+  } else {
+    window.location.href = "/index.html";
   }
-  
-  validateUserLogged ()
+}
 
-  let IcnCurrentPassword = document.getElementById("iconCurrentPassword");
-  let IcnNewPassowrd1 = document.getElementById("iconNewPassword1");
-  let IcnNewPassowrd2 = document.getElementById("iconNewPassword2");
-  
-  let formChangeUsername = document.getElementById("formCambiarUsername")
-  let formChangeEmail = document.getElementById("formCambiarEmail")
-  let formChangePassword = document.getElementById("formCambiarContraseña")
-  
- 
-let currentPasswordForm = document.getElementById('passworCambiarContraseña-Actual')
-let newPassword1Form = document.getElementById('passworCambiarContraseña1')
-let newPassword2Form = document.getElementById('passworCambiarContraseña2')
+validateUserLogged();
 
-let  modalChangeSuccess = new bootstrap.Modal(document.getElementById('modalChangeSuccess'))
+let IcnCurrentPassword = document.getElementById("iconCurrentPassword");
+let IcnNewPassowrd1 = document.getElementById("iconNewPassword1");
+let IcnNewPassowrd2 = document.getElementById("iconNewPassword2");
+let formChangeUsername = document.getElementById("formCambiarUsername");
+let formChangeEmail = document.getElementById("formCambiarEmail");
+let formChangePassword = document.getElementById("formCambiarContraseña");
+let currentPasswordForm = document.getElementById(
+  "passworCambiarContraseña-Actual"
+);
+let newPassword1Form = document.getElementById("passworCambiarContraseña1");
+let newPassword2Form = document.getElementById("passworCambiarContraseña2");
 
-
-
-
+let modalChangeSuccess = new bootstrap.Modal(
+  document.getElementById("modalChangeSuccess")
+);
 
 currentPasswordForm.addEventListener("keyup", validateCurrentPassword);
 
@@ -74,18 +66,14 @@ newPassword1Form.addEventListener("keyup", validateNewPassword);
 
 function validateNewPassword() {
   let validate = true;
-
   let password = newPassword1Form.value;
-
   let passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
 
   if (!passwordRegExp.test(password)) {
     newPassword1Form.className = "form-control is-invalid";
-
     validate = false;
   } else if (currentPasswordForm.value === newPassword1Form.value) {
     newPassword1Form.className = "form-control is-invalid";
-
     validate = false;
   } else {
     newPassword1Form.className = "form-control is-valid";
@@ -98,20 +86,15 @@ newPassword2Form.addEventListener("keyup", validateNewPasswordMatch);
 
 function validateNewPasswordMatch() {
   let validate = true;
-
   let password = newPassword1Form.value;
-
   let password2 = newPassword2Form.value;
 
   if (validateNewPassword(password)) {
     newPassword2Form.className = "form-control is-valid";
-
     if (password !== password2) {
       validate = false;
-
       newPassword2Form.className = "form-control is-invalid";
     }
-
     return validate;
   }
   return validate;
@@ -121,7 +104,7 @@ let btnSavePassword = document.getElementById("guardarContraseña");
 btnSavePassword.addEventListener("click", validateGeneralNewPassword);
 
 function validateGeneralNewPassword(e) {
-  e.preventDefault()
+  e.preventDefault();
   if (
     validateCurrentPassword() &
     validateNewPassword() &
@@ -139,18 +122,12 @@ function validateGeneralNewPassword(e) {
 
     localStorage.setItem("userLogged", JSON.stringify(userLogged));
     localStorage.setItem("users", JSON.stringify(arrayUsers));
-
-  
-
-   
-    formChangeUsername.reset()
-    modalChangeSuccess.show()
-    setTimeout(function(){
-   modalChangeSuccess.hide()
-   
- },2000);
+    formChangeUsername.reset();
+    modalChangeSuccess.show();
+    setTimeout(function () {
+      modalChangeSuccess.hide();
+    }, 2000);
   }
-  
 }
 
 let IcnChangeEmail = document.getElementById("iconPasswordCambiarEmail");
@@ -159,7 +136,6 @@ let newEmailForm = document.getElementById("nuevoEmail");
 let passwordChangeEmailForm = document.getElementById("passwordCambiarEmail");
 
 passwordChangeEmailForm.addEventListener("keyup", validatePasswordChangeEmail);
-
 currentEmailForm.addEventListener("keyup", validateCurrentMail);
 
 function validateCurrentMail() {
@@ -177,14 +153,11 @@ newEmailForm.addEventListener("keyup", validateNewEmail);
 
 function validateNewEmail() {
   let validate = true;
-
   let email = newEmailForm.value;
-
   let emailRegExp = /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
 
   if (!emailRegExp.test(email)) {
     validate = false;
-  } else {
   }
 
   let array = JSON.parse(localStorage.getItem("users")) || [];
@@ -206,6 +179,7 @@ function validateNewEmail() {
   }
   return validate;
 }
+
 function validatePasswordChangeEmail() {
   let userLogged = JSON.parse(localStorage.getItem("userLogged"));
   if (userLogged.password === passwordChangeEmailForm.value) {
@@ -225,8 +199,8 @@ let btnSaveEmail = document.getElementById("guardarEmail");
 btnSaveEmail.addEventListener("click", validateGeneralNewEmail);
 
 function validateGeneralNewEmail(e) {
-  e.preventDefault()
- 
+  e.preventDefault();
+
   if (
     validateCurrentMail() &
     validateNewEmail() &
@@ -244,15 +218,13 @@ function validateGeneralNewEmail(e) {
 
     localStorage.setItem("userLogged", JSON.stringify(userLogged));
     localStorage.setItem("users", JSON.stringify(arrayUsers));
-   
-    formChangeEmail.reset()
-    modalChangeSuccess.show()
-    setTimeout(function(){
-   modalChangeSuccess.hide()
- },2000);
-    
+
+    formChangeEmail.reset();
+    modalChangeSuccess.show();
+    setTimeout(function () {
+      modalChangeSuccess.hide();
+    }, 2000);
   }
-  
 }
 
 let passwordChangeUsernameForm = document.getElementById(
@@ -320,7 +292,7 @@ function validatePasswordChangeUsername() {
 let btnUsername = document.getElementById("guardarNombreDeUsuario");
 btnUsername.addEventListener("click", validateGeneralNewUsername);
 function validateGeneralNewUsername(e) {
-  e.preventDefault
+  e.preventDefault;
   if (
     validateCurrentUsername() &
     validateNewUsername() &
@@ -339,25 +311,16 @@ function validateGeneralNewUsername(e) {
     localStorage.setItem("userLogged", JSON.stringify(userLogged));
     localStorage.setItem("users", JSON.stringify(arrayUsers));
 
-    formChangePassword.reset()
-    modalChangeSuccess.show()
-    setTimeout(function(){
-   modalChangeSuccess.hide()
- },2000);
+    formChangePassword.reset();
+    modalChangeSuccess.show();
+    setTimeout(function () {
+      modalChangeSuccess.hide();
+    }, 2000);
   }
- 
 }
 
-
-
-
-
-
-
 document.addEventListener("click", (e) => {
-
-  const { target } = e
-
+  const { target } = e;
 
   if (
     target.matches("#hidePasswordContraseñaActual") ||
@@ -366,7 +329,6 @@ document.addEventListener("click", (e) => {
     target.matches("#hidePasswordCambiarEmail") ||
     target.matches("#hidePasswordCambiarUsername")
   ) {
-
     if (target.matches("#hidePasswordContraseñaActual")) {
       currentPasswordForm.type = "password";
       IcnCurrentPassword.innerHTML =
@@ -456,8 +418,6 @@ function switchToPasswordChangePanel() {
   panelEmail.className = "col-md-12 col-lg-8 mt-lg-3 d-none";
   panelPassword.className = "col-md-12 col-lg-8 mt-lg-3 ";
   panelUsername.className = "col-md-12 col-lg-8 mt-lg-3 d-none";
-
-  
 }
 
 btnPanelChangeEmail.addEventListener("click", switchToEmailChangePanel);
@@ -473,5 +433,3 @@ function switchToUsernameChangePanel() {
   panelPassword.className = "col-md-12 col-lg-8 mt-lg-3 d-none";
   panelUsername.className = "col-md-12 col-lg-8 mt-lg-3  ";
 }
-
-

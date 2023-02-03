@@ -5,94 +5,66 @@ import { hardCodedMovies } from "./Classes/movies.js";
 
 hardCodedMovies();
 
-const renderBanner = () =>{
+const renderBanner = () => {
+  let arrayMovies = JSON.parse(localStorage.getItem("Movies"));
+  let movieFeatured = arrayMovies.find((i) => i.featured);
 
-    
-    let arrayMovies = JSON.parse( localStorage.getItem("Movies") );
+  if (movieFeatured === undefined) {
+    movieFeatured = arrayMovies.find((i) => i.published);
+  }
 
-    let movieFeatured = arrayMovies.find( i =>  i.featured );
-
-
-    if(movieFeatured === undefined){
-
-        movieFeatured = arrayMovies.find( i => i.published);
-        
-    }
-
-    let banner = document.getElementById("movieFeaturedBanner");
-
-    banner.innerHTML = movieBanner(movieFeatured);
-} 
+  let banner = document.getElementById("movieFeaturedBanner");
+  banner.innerHTML = movieBanner(movieFeatured);
+};
 
 renderBanner();
 
-const renderMovieCards = () =>{
-
-
-
-  let arrayMovies = JSON.parse( localStorage.getItem("Movies") );
-
-  arrayMovies = arrayMovies.filter( i => i.published);
-
-
-
+const renderMovieCards = () => {
+  let arrayMovies = JSON.parse(localStorage.getItem("Movies"));
+  arrayMovies = arrayMovies.filter((i) => i.published);
   let gliderAccion = document.getElementById("gliderAccion");
+  let arrayMoviesAccion = arrayMovies.filter((i) => i.category === "Accion");
 
-  let arrayMoviesAccion = arrayMovies.filter( i => i.category === "Accion");
-
-    gliderAccion.innerHTML = "";
-
-    arrayMoviesAccion.forEach( i => {
-        
-        gliderAccion.innerHTML += movieCard(i);
-
-    });
-
- 
+  gliderAccion.innerHTML = "";
+  arrayMoviesAccion.forEach((i) => {
+    gliderAccion.innerHTML += movieCard(i);
+  });
 
   let gliderCienciaFiccion = document.getElementById("gliderCienciaFiccion");
-
-  let arrayMoviesCienciaFiccion = arrayMovies.filter( i => i.category === "Ciencia Ficcion");
+  let arrayMoviesCienciaFiccion = arrayMovies.filter(
+    (i) => i.category === "Ciencia Ficcion"
+  );
 
   gliderCienciaFiccion.innerHTML = "";
 
-  arrayMoviesCienciaFiccion.forEach( i => {
-      
+  arrayMoviesCienciaFiccion.forEach((i) => {
     gliderCienciaFiccion.innerHTML += movieCard(i);
-
   });
-
-
 
   let gliderSuperHeroes = document.getElementById("gliderSuperHeroes");
 
-  let arrayMoviesSuperHeroes = arrayMovies.filter( i => i.category === "Superhéroes");
+  let arrayMoviesSuperHeroes = arrayMovies.filter(
+    (i) => i.category === "Superhéroes"
+  );
 
   gliderSuperHeroes.innerHTML = "";
 
-  arrayMoviesSuperHeroes.forEach( i => {
-      
+  arrayMoviesSuperHeroes.forEach((i) => {
     gliderSuperHeroes.innerHTML += movieCard(i);
-
   });
-
-
 
   let gliderDocumentales = document.getElementById("gliderDocumentales");
 
-  let arrayMoviesDocumentales = arrayMovies.filter( i => i.category === "Documental");
+  let arrayMoviesDocumentales = arrayMovies.filter(
+    (i) => i.category === "Documental"
+  );
 
   gliderDocumentales.innerHTML = "";
 
-  arrayMoviesDocumentales.forEach( i => {
-      
+  arrayMoviesDocumentales.forEach((i) => {
     gliderDocumentales.innerHTML += movieCard(i);
-
   });
-}
+};
 
 renderMovieCards();
-
 renderGliders();
-
-

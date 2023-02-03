@@ -2,13 +2,9 @@ import { parseUrl } from "../Classes/parseUrLs.js";
 
 
 export  const favoriteCard = (movie) =>{
-
     let URLfeatured = parseUrl(movie.imgURLFeatured);
-
     let name = movie.name;
-
     let id = movie.code;
-
     let description = movie.description;
 
     return `
@@ -38,24 +34,17 @@ export  const favoriteCard = (movie) =>{
 } 
 
 function removeMovieFavorite(id) {
-
     let user =  (JSON.parse( localStorage.getItem("userLogged"))); 
-    
     user.favoritesMovies = user.favoritesMovies.filter( i => i !== id);
-
     localStorage.setItem("userLogged",JSON.stringify(user))
-
     let cardNone = document.getElementById( id + "favoriteCard");
-
     cardNone.className = "d-none";
 }
 
 function abrirReproductor(id) {
-
   let user =  (JSON.parse( localStorage.getItem("userLogged")));
 
   if ( user !== null){
-
     window.location = "/pages/reproductor.html?id=" + id;
   } 
 }

@@ -6,17 +6,12 @@ export const reproductor = (movie) =>{
     let titleMovie = document.getElementById("titleMovie")
     let name = movie.name;
     titleMovie.innerHTML = movie.name
-   
     let video = parseUrl( movie.videoURL );
-
     let user = JSON.parse( localStorage.getItem("userLogged")) ;
     let favorite ;
-  
-
     if ( user !== null){
       favorite = user.favoritesMovies.find( i => i == id) ;
     }
-
 
  let reproductor = `
  <div class="ratio ratio-16x9 iframeReproductor">
@@ -42,35 +37,19 @@ if(favorite===undefined){
 }
 
 function favoriteOnOff (id) {
-
- 
-
     let user =  (JSON.parse( localStorage.getItem("userLogged")));
-  
     if ( user !== null){
-  
       let  icnFavorite = document.getElementById("iconFavorite");
-    
+
       if ( icnFavorite.matches(".bi-star-fill") ) {
-        
         icnFavorite.className = "bi bi-star text-warning fs-3 mx-5 ms-auto ";
-        
         user.favoritesMovies = user.favoritesMovies.filter( i => i !== id);
-        
-    
-      } 
-    
-      else {
-    
+      } else {
         user.favoritesMovies.push(id);
-    
         icnFavorite.className = "bi bi-star-fill text-warning fs-3 mx-5 ms-auto ";
-      
       }
-    
       localStorage.setItem("userLogged",JSON.stringify(user))
     } 
-    
   }
 
 
